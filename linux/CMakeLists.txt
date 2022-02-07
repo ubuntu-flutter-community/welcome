@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 project(runner LANGUAGES CXX)
 
 set(BINARY_NAME "ubuntu_welcome")
-set(APPLICATION_ID "com.example.ubuntu_welcome")
+set(APPLICATION_ID "com.github.ItzSwirlz.ubuntu_welcome")
 
 cmake_policy(SET CMP0063 NEW)
 
