@@ -3,6 +3,8 @@ import 'package:yaru/yaru.dart';
 
 import 'pages/home.dart';
 
+import 'l10n.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -14,6 +16,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Ubuntu Welcome',
+      localizationsDelegates: localizationDelegates,
+      supportedLocales: supportedLocales,
       theme: yaruLight,
       darkTheme: yaruDark,
       home: const MyHomePage(title: 'Welcome'),

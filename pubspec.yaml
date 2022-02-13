@@ -11,16 +11,23 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
   yaru: ^0.2.1
 
 dev_dependencies:
   flutter_lints: ^1.0.0
-
+  flutter_localizations:
+    sdk: flutter
   flutter_test:
     sdk: flutter
+  intl: ^0.17.0
+  ubuntu_localizations:
+    git:
+      url: https://github.com/canonical/ubuntu-flutter-plugins.git
+      path: packages/ubuntu_localizations
 
 flutter:
-
+  generate: true
   uses-material-design: true
   assets:
     - assets/
