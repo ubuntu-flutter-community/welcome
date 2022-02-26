@@ -6,11 +6,11 @@ import 'pages/home.dart';
 import 'l10n.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const WelcomeApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class WelcomeApp extends StatelessWidget {
+  const WelcomeApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: supportedLocales,
       theme: yaruLight,
       darkTheme: yaruDark,
-      home: const MyHomePage(title: 'Welcome'),
+      home: const HomePage(title: 'Welcome'),
     );
   }
 }
