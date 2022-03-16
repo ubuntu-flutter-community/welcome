@@ -18,30 +18,94 @@ class _MyHomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: YaruPage(
-        children: [
-          Container(
-            margin: EdgeInsets.all(50.0),
-            padding: EdgeInsets.all(20.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                TextButton(onPressed: () {}, child: const Text('Introduction')),
-                TextButton(
-                    onPressed: () {}, child: const Text('Getting Started')),
-                TextButton(onPressed: () {}, child: const Text('Personalize')),
-                TextButton(
-                    onPressed: () {}, child: const Text('Recommendations')),
+      body: Center(
+        child: YaruPage(
+          children: [
+            const Image(image: AssetImage('assets/ubuntu.png')),
+            const SizedBox(height: 100),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                ElevatedButton(
+                    onPressed: () {},
+                    child: Text('Introduction'),
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                            YaruColors.ubuntuOrange))),
+                ElevatedButton(
+                    onPressed: () {},
+                    child: Text('Getting Started'),
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                            YaruColors.ubuntuOrange))),
+                ElevatedButton(
+                    onPressed: () {},
+                    child: Text('Personalize'),
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                            YaruColors.ubuntuOrange))),
+                ElevatedButton(
+                    onPressed: () {},
+                    child: Text('Recommendations'),
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                            YaruColors.ubuntuOrange))),
+                ElevatedButton(
+                    onPressed: () {},
+                    child: Text('Community'),
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                            YaruColors.ubuntuOrange))),
               ],
             ),
-          ),
-        ],
+            SizedBox(height: 100),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                ElevatedButton(
+                    onPressed: () {},
+                    child: Text('Store'),
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                            YaruColors.ubuntuOrange))),
+                ElevatedButton(
+                    onPressed: () {},
+                    child: Text('Gaming'),
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                            YaruColors.ubuntuOrange))),
+                ElevatedButton(
+                    onPressed: () {},
+                    child: Text('Opportunities'),
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                            YaruColors.ubuntuOrange))),
+                ElevatedButton(
+                    onPressed: () {},
+                    child: Text('Get Involved'),
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                            YaruColors.ubuntuOrange))),
+                ElevatedButton(
+                    onPressed: () {},
+                    child: Text('Donate'),
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                            YaruColors.ubuntuOrange))),
+              ],
+            )
+          ],
+        ),
       ),
-      bottomNavigationBar: const BottomAppBar(
+      bottomNavigationBar: BottomAppBar(
         color: YaruColors.blue,
-        child: Text('Social Media Link Row Here....'),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            IconButton(onPressed: () {}, icon: Icon(Icons.facebook)),
+            IconButton(onPressed: () {}, icon: Icon(Icons.telegram))
+          ],
+        ),
       ),
     );
   }
