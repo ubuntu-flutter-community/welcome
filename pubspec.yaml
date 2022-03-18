@@ -12,6 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
 
+  url_launcher: ^6.0.20
   yaru: ^0.2.1
   yaru_widgets: ^1.0.6
 
