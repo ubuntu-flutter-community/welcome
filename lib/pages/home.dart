@@ -14,9 +14,11 @@ import 'donate.dart';
 import 'gaming.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key, required this.title}) : super(key: key);
+  const HomePage({Key? key, required this.title, required this.primaryColor})
+      : super(key: key);
 
   final String title;
+  final Color primaryColor;
 
   @override
   State<HomePage> createState() => HomePageState();
@@ -36,9 +38,11 @@ class HomePageState extends State<HomePage> {
             child: Text('Welcome to the 22.04 Jammy Jellyfish!',
                 textAlign: TextAlign.start),
           ),
-          const Center(
-            child: Image(image: AssetImage('assets/ubuntu.png')),
-          ),
+          Center(
+              child: Image(
+                  image: AssetImage('assets/ubuntu.png'),
+                  color: widget.primaryColor,
+                  colorBlendMode: BlendMode.hue)),
           const SizedBox(height: 100),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -53,7 +57,7 @@ class HomePageState extends State<HomePage> {
                   child: Text('Introduction'),
                   style: ButtonStyle(
                       backgroundColor:
-                          MaterialStateProperty.all(YaruColors.ubuntuOrange))),
+                          MaterialStateProperty.all(widget.primaryColor))),
               ElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -64,7 +68,7 @@ class HomePageState extends State<HomePage> {
                   child: Text('Getting Started'),
                   style: ButtonStyle(
                       backgroundColor:
-                          MaterialStateProperty.all(YaruColors.ubuntuOrange))),
+                          MaterialStateProperty.all(widget.primaryColor))),
               ElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -75,7 +79,7 @@ class HomePageState extends State<HomePage> {
                   child: Text('Features'),
                   style: ButtonStyle(
                       backgroundColor:
-                          MaterialStateProperty.all(YaruColors.ubuntuOrange))),
+                          MaterialStateProperty.all(widget.primaryColor))),
               ElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -86,7 +90,7 @@ class HomePageState extends State<HomePage> {
                   child: Text('Recommendations'),
                   style: ButtonStyle(
                       backgroundColor:
-                          MaterialStateProperty.all(YaruColors.ubuntuOrange))),
+                          MaterialStateProperty.all(widget.primaryColor))),
               ElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -97,7 +101,7 @@ class HomePageState extends State<HomePage> {
                   child: Text('Gaming'),
                   style: ButtonStyle(
                       backgroundColor:
-                          MaterialStateProperty.all(YaruColors.ubuntuOrange))),
+                          MaterialStateProperty.all(widget.primaryColor))),
             ],
           ),
           const SizedBox(height: 50),
@@ -114,7 +118,7 @@ class HomePageState extends State<HomePage> {
                   child: Text('Community'),
                   style: ButtonStyle(
                       backgroundColor:
-                          MaterialStateProperty.all(YaruColors.ubuntuOrange))),
+                          MaterialStateProperty.all(widget.primaryColor))),
               ElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -125,7 +129,7 @@ class HomePageState extends State<HomePage> {
                   child: Text('Get Involved'),
                   style: ButtonStyle(
                       backgroundColor:
-                          MaterialStateProperty.all(YaruColors.ubuntuOrange))),
+                          MaterialStateProperty.all(widget.primaryColor))),
               ElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -136,7 +140,7 @@ class HomePageState extends State<HomePage> {
                   child: Text('Opportunities'),
                   style: ButtonStyle(
                       backgroundColor:
-                          MaterialStateProperty.all(YaruColors.ubuntuOrange))),
+                          MaterialStateProperty.all(widget.primaryColor))),
               ElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -147,7 +151,7 @@ class HomePageState extends State<HomePage> {
                   child: Text('Donate'),
                   style: ButtonStyle(
                       backgroundColor:
-                          MaterialStateProperty.all(YaruColors.ubuntuOrange))),
+                          MaterialStateProperty.all(widget.primaryColor))),
             ],
           )
         ],
