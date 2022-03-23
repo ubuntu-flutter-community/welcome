@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yaru/yaru.dart';
+import 'package:yaru/src/colors/flavor_colors.dart';
 
 import 'pages/home.dart';
 
@@ -20,7 +21,8 @@ class WelcomeApp extends StatelessWidget {
       supportedLocales: supportedLocales,
       theme: yaruLight,
       darkTheme: yaruDark,
-      home: const HomePage(title: 'Welcome', primaryColor: YaruColors.green),
+      home: const HomePage(
+          title: 'Welcome', primaryColor: YaruColors.ubuntuOrange),
     );
   }
 }

@@ -22,3 +22,7 @@ doc/api/
 
 # Editor junk
 .idea/
+
+# More flutter junk
+.flutter-plugins
+.flutter-plugins-dependencies

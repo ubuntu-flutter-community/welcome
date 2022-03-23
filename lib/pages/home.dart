@@ -39,10 +39,11 @@ class HomePageState extends State<HomePage> {
                 textAlign: TextAlign.start),
           ),
           Center(
-              child: Image(
-                  image: AssetImage('assets/ubuntu.png'),
-                  color: widget.primaryColor,
-                  colorBlendMode: BlendMode.hue)),
+              child: ClipOval(
+                  child: Image(
+                      image: const AssetImage('assets/ubuntu.png'),
+                      color: widget.primaryColor,
+                      colorBlendMode: BlendMode.color))),
           const SizedBox(height: 100),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
