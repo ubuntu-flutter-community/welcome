@@ -8,6 +8,7 @@ import 'package:ubuntu_welcome/pages/opportunities.dart';
 import 'package:ubuntu_welcome/pages/recommendations.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:yaru/yaru.dart';
+import 'package:yaru_icons/yaru_icons.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 
 import 'donate.dart';
@@ -29,6 +30,19 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: const Icon(YaruIcons.information),
+            onPressed: () {
+              showAboutDialog(
+                  context: context,
+                  applicationName: 'Ubuntu Welcome',
+                  applicationVersion: '22.04',
+                  applicationIcon: const Icon(YaruIcons.ubuntu_logo),
+                  applicationLegalese: 'GNU General Public License v3.0');
+            },
+          ),
+        ],
         title: Text(widget.title),
       ),
       body: YaruPage(
