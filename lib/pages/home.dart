@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:ubuntu_welcome/pages/community.dart';
-import 'package:ubuntu_welcome/pages/features.dart';
-import 'package:ubuntu_welcome/pages/get_involved.dart';
-import 'package:ubuntu_welcome/pages/getting_started.dart';
-import 'package:ubuntu_welcome/pages/introduction.dart';
-import 'package:ubuntu_welcome/pages/opportunities.dart';
-import 'package:ubuntu_welcome/pages/recommendations.dart';
+
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'community.dart';
+import 'features.dart';
+import 'get_involved.dart';
+import 'getting_started.dart';
+import 'introduction.dart';
+import 'opportunities.dart';
+import 'recommendations.dart';
+import 'donate.dart';
+import 'gaming.dart';
+
 import 'package:url_launcher/url_launcher.dart';
+
 import 'package:yaru/yaru.dart';
 import 'package:yaru_icons/yaru_icons.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
-
-import 'donate.dart';
-import 'gaming.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key, required this.title, required this.primaryColor})
@@ -25,7 +29,25 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => HomePageState();
 }
 
-class HomePageState extends State<HomePage> {
+class HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  late final AnimationController _controller = AnimationController(
+    duration: const Duration(seconds: 2),
+    vsync: this,
+  );
+  late final Animation<double> _animation = CurvedAnimation(
+      parent: _controller,
+      curve: Curves.ease);
+
+  @override
+  void initState() {
+    super.initState();
+    animate();
+  }
+
+  void animate() async {
+    await _controller.forward();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,11 +75,13 @@ class HomePageState extends State<HomePage> {
                 textAlign: TextAlign.start),
           ),
           Center(
-              child: ClipOval(
+              child: RotationTransition(
+                turns: _animation,
+                  child: ClipOval(
                   child: Image(
                       image: const AssetImage('assets/ubuntu.png'),
                       color: widget.primaryColor,
-                      colorBlendMode: BlendMode.color))),
+                      colorBlendMode: BlendMode.color)))),
           const SizedBox(height: 100),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -176,20 +200,89 @@ class HomePageState extends State<HomePage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            IconButton(
-                onPressed: () async {
-                  if (!await launch('https://www.facebook.com/ubuntulinux/')) {
-                    throw 'Could not open Facebook Page';
-                  }
-                },
-                icon: const Icon(Icons.facebook)),
-            IconButton(
-                onPressed: () async {
-                  if (!await launch('https://t.me/ubuntu')) {
-                    throw 'Could not open Telegram Page';
-                  }
-                },
-                icon: const Icon(Icons.telegram))
+            Tooltip(
+              message: 'Twitter',
+              child: IconButton(
+                  onPressed: () async {
+                    if (!await launch(
+                        'https://www.twitter.com/ubuntu/')) {
+                      throw 'Could not open Twitter Page';
+                    }
+                  },
+                  icon: const Icon(FontAwesomeIcons.twitter)),
+              waitDuration: const Duration(seconds: 1),
+            ),
+            Tooltip(
+              message: 'Facebook',
+              child: IconButton(
+                  onPressed: () async {
+                    if (!await launch(
+                        'https://www.facebook.com/ubuntulinux/')) {
+                      throw 'Could not open Facebook Page';
+                    }
+                  },
+                  icon: const Icon(Icons.facebook)),
+              waitDuration: const Duration(seconds: 1),
+            ),
+            Tooltip(
+              message: 'Reddit',
+              child: IconButton(
+                  onPressed: () async {
+                    if (!await launch(
+                        'https://www.reddit.com/r/Ubuntu/')) {
+                      throw 'Could not open Reddit Page';
+                    }
+                  },
+                  icon: const Icon(FontAwesomeIcons.reddit)),
+              waitDuration: const Duration(seconds: 1),
+            ),
+            Tooltip(
+              message: 'YouTube',
+              child: IconButton(
+                  onPressed: () async {
+                    if (!await launch(
+                        'https://www.youtube.com/c/UbuntuOS/videos')) {
+                      throw 'Could not open YouTube Page';
+                    }
+                  },
+                  icon: const Icon(FontAwesomeIcons.youtube)),
+              waitDuration: const Duration(seconds: 1),
+            ),
+            Tooltip(
+              message: 'Telegram',
+              child: IconButton(
+                  onPressed: () async {
+                    if (!await launch('https://t.me/ubuntu')) {
+                      throw 'Could not open Telegram Page';
+                    }
+                  },
+                  icon: const Icon(Icons.telegram)),
+              waitDuration: const Duration(seconds: 1),
+            ),
+            Tooltip(
+                message: 'Libera IRC',
+                child: IconButton(
+                  onPressed: () async {
+                    if (!await launch(
+                        'https://wiki.ubuntu.com/IRC/ChannelList')) {
+                      throw 'Could not open IRC channel list Page';
+                    }
+                  },
+                  icon: const Icon(Icons.chat),
+                ),
+                waitDuration: const Duration(seconds: 1)),
+            Tooltip(
+              message: 'LinkedIn',
+              child: IconButton(
+                  onPressed: () async {
+                    if (!await launch(
+                        'https://www.linkedin.com/company/234280')) {
+                      throw 'Could not open LinkedIn Page';
+                    }
+                  },
+                  icon: const Icon(FontAwesomeIcons.linkedin)),
+              waitDuration: const Duration(seconds: 1),
+            ),
           ],
         ),
       ),

@@ -12,6 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
 
+  font_awesome_flutter: ^10.1.0
   url_launcher: ^6.0.20
   yaru: ^0.2.1
   yaru_icons: ^0.1.3
