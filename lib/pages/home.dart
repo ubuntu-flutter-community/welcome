@@ -34,9 +34,8 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
     duration: const Duration(seconds: 2),
     vsync: this,
   );
-  late final Animation<double> _animation = CurvedAnimation(
-      parent: _controller,
-      curve: Curves.ease);
+  late final Animation<double> _animation =
+      CurvedAnimation(parent: _controller, curve: Curves.ease);
 
   @override
   void initState() {
@@ -76,12 +75,12 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
           ),
           Center(
               child: RotationTransition(
-                turns: _animation,
+                  turns: _animation,
                   child: ClipOval(
-                  child: Image(
-                      image: const AssetImage('assets/ubuntu.png'),
-                      color: widget.primaryColor,
-                      colorBlendMode: BlendMode.color)))),
+                      child: Image(
+                          image: const AssetImage('assets/ubuntu.png'),
+                          color: widget.primaryColor,
+                          colorBlendMode: BlendMode.color)))),
           const SizedBox(height: 100),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -204,8 +203,7 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
               message: 'Twitter',
               child: IconButton(
                   onPressed: () async {
-                    if (!await launch(
-                        'https://www.twitter.com/ubuntu/')) {
+                    if (!await launch('https://www.twitter.com/ubuntu/')) {
                       throw 'Could not open Twitter Page';
                     }
                   },
@@ -228,8 +226,7 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
               message: 'Reddit',
               child: IconButton(
                   onPressed: () async {
-                    if (!await launch(
-                        'https://www.reddit.com/r/Ubuntu/')) {
+                    if (!await launch('https://www.reddit.com/r/Ubuntu/')) {
                       throw 'Could not open Reddit Page';
                     }
                   },

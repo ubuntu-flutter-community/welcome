@@ -21,8 +21,7 @@ class WelcomeApp extends StatelessWidget {
       supportedLocales: supportedLocales,
       theme: yaruLight,
       darkTheme: yaruDark,
-      home: const HomePage(
-          title: 'Welcome', primaryColor: YaruColors.orange),
+      home: const HomePage(title: 'Welcome', primaryColor: YaruColors.orange),
     );
   }
 }
