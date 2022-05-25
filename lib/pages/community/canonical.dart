@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yaru/yaru.dart';
+import 'package:yaru_colors/yaru_colors.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 
 class CommunityCanonicalPage extends StatefulWidget {

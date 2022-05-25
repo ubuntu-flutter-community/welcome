@@ -22,6 +22,7 @@ doc/api/
 
 # Editor junk
 .idea/
+ubuntu_welcome.iml
 
 # More flutter junk
 .flutter-plugins
