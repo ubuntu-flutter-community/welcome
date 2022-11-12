@@ -1,0 +1,6 @@
+  "welcome": "Välkommen",
+  "ubuntuWelcomeTitle": "Ubuntu Välkommen",
+  "@ubuntuWelcomeTitle": {
+    "description": "Titel på fönstret."
+  }
+}
