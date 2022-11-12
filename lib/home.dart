@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-import 'community.dart';
-import 'features.dart';
-import 'get_involved.dart';
-import 'getting_started.dart';
-import 'introduction.dart';
-import 'opportunities.dart';
-import 'recommendations.dart';
-import 'donate.dart';
-import 'gaming.dart';
+import 'pages/community.dart';
+import 'pages/features.dart';
+import 'pages/get_involved.dart';
+import 'pages/getting_started.dart';
+import 'pages/introduction.dart';
+import 'pages/opportunities.dart';
+import 'pages/recommendations.dart';
+import 'pages/donate.dart';
+import 'pages/gaming.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
@@ -58,7 +57,7 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
               showAboutDialog(
                   context: context,
                   applicationName: 'Ubuntu Welcome',
-                  applicationVersion: '22.04',
+                  applicationVersion: '22.04-devel',
                   applicationIcon: const Icon(YaruIcons.ubuntu_logo),
                   applicationLegalese: 'GNU General Public License v3.0');
             },
@@ -68,11 +67,6 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
       ),
       body: YaruPage(
         children: [
-          const Align(
-            alignment: Alignment.topLeft,
-            child: Text('Welcome to the 22.04 Jammy Jellyfish!',
-                textAlign: TextAlign.start),
-          ),
           Center(
               child: RotationTransition(
                   turns: _animation,
@@ -82,116 +76,124 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           color: widget.primaryColor,
                           colorBlendMode: BlendMode.color)))),
           const SizedBox(height: 100),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const IntroductionPage()));
-                  },
-                  child: Text('Introduction'),
-                  style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all(widget.primaryColor))),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const GettingStartedPage()));
-                  },
-                  child: Text('Getting Started'),
-                  style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all(widget.primaryColor))),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const FeaturesPage()));
-                  },
-                  child: Text('Features'),
-                  style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all(widget.primaryColor))),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const RecommendationsPage()));
-                  },
-                  child: Text('Recommendations'),
-                  style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all(widget.primaryColor))),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const GamingPage()));
-                  },
-                  child: Text('Gaming'),
-                  style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all(widget.primaryColor))),
-            ],
+          YaruBanner(
+            fallbackIconData: YaruIcons.star_filled,
+            name: "Introduction",
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const IntroductionPage()));
+            },
+            summary: "The Ubuntu project, explained.",
+            summaryTextOverflow: TextOverflow.visible,
+            surfaceTintColor: YaruColors.orange,
           ),
-          const SizedBox(height: 50),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const CommunityPage()));
-                  },
-                  child: Text('Community'),
-                  style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all(widget.primaryColor))),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const GetInvolvedPage()));
-                  },
-                  child: Text('Get Involved'),
-                  style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all(widget.primaryColor))),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const OpportunitiesPage()));
-                  },
-                  child: Text('Opportunities'),
-                  style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all(widget.primaryColor))),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const DonatePage()));
-                  },
-                  child: Text('Donate'),
-                  style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all(widget.primaryColor))),
-            ],
-          )
+          YaruBanner(
+            fallbackIconData: YaruIcons.go_next,
+            name: "Getting Started",
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const GettingStartedPage()));
+            },
+            summary:
+                "Nothing to wait for - get started with your new operating system!",
+            summaryTextOverflow: TextOverflow.visible,
+            surfaceTintColor: YaruColors.orange,
+          ),
+          YaruBanner(
+            fallbackIconData: YaruIcons.view,
+            name: "Features",
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const FeaturesPage()));
+            },
+            summary: "What Ubuntu has to offer.",
+            summaryTextOverflow: TextOverflow.visible,
+            surfaceTintColor: YaruColors.orange,
+          ),
+          YaruBanner(
+            fallbackIconData: YaruIcons.radio_button_checked,
+            name: "Recommendations",
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const RecommendationsPage()));
+            },
+            summary: "How you can make the most out of Ubuntu.",
+            summaryTextOverflow: TextOverflow.visible,
+            surfaceTintColor: YaruColors.orange,
+          ),
+          YaruBanner(
+            fallbackIconData: YaruIcons.games,
+            name: "Gaming",
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const GamingPage()));
+            },
+            summary: "You can game on Ubuntu too! 1v1?",
+            summaryTextOverflow: TextOverflow.visible,
+            surfaceTintColor: YaruColors.orange,
+          ),
+          YaruBanner(
+            fallbackIconData: YaruIcons.accessibility,
+            name: "Community",
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const CommunityPage()));
+            },
+            summary:
+                "Ubuntu governance is ran by the Ubuntu community - free and open to all.",
+            summaryTextOverflow: TextOverflow.visible,
+            surfaceTintColor: YaruColors.orange,
+          ),
+          YaruBanner(
+            fallbackIconData: YaruIcons.office,
+            name: "Get Involved",
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const GetInvolvedPage()));
+            },
+            summary:
+                "See something that is missing? Want to fix a bug? We are always looking for new people!",
+            summaryTextOverflow: TextOverflow.visible,
+            surfaceTintColor: YaruColors.orange,
+          ),
+          YaruBanner(
+            fallbackIconData: YaruIcons.app_grid,
+            name: "Opportunities",
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const OpportunitiesPage()));
+            },
+            summary:
+                "Explore the many opportunities Ubuntu and its community can bring.",
+            summaryTextOverflow: TextOverflow.visible,
+            surfaceTintColor: YaruColors.orange,
+          ),
+          YaruBanner(
+            fallbackIconData: YaruIcons.heart,
+            name: "Donate",
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const DonatePage()));
+            },
+            summary:
+                "A little kindness, and a little consideration can make all the difference.",
+            summaryTextOverflow: TextOverflow.visible,
+            surfaceTintColor: YaruColors.orange,
+          ),
         ],
       ),
       bottomNavigationBar: BottomAppBar(
